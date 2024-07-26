@@ -49,7 +49,7 @@ public class ImagInnovateEmployeeController {
 		try {
 			response = imanovateEmployeeService.getEmployeeDetails();
 		} catch (Exception e) {
-			throw new Exception("Error occured while saving employee details ");
+			throw new Exception("Error occured while fetching employee details ");
 		}
 		ResponseEntity<List<EmployeeDetailsResponse>> responseEntity = new ResponseEntity<List<EmployeeDetailsResponse>>(
 				response, HttpStatus.OK);
