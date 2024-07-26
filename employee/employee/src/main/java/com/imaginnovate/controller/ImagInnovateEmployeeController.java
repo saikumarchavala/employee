@@ -43,7 +43,7 @@ public class ImagInnovateEmployeeController {
 
 	@PostMapping("/getEmployeeDetails")
 	public ResponseEntity<?> getAllEmployeeDetails() throws Exception {
-		LOGGER.info("saveEmployeeDetails method called in ImagInnovateEmployeeController");
+		LOGGER.info("getAllEmployeeDetails method called in ImagInnovateEmployeeController");
 
 		List<EmployeeDetailsResponse> response = new ArrayList<EmployeeDetailsResponse>();
 		try {
