@@ -104,23 +104,26 @@ public class ImagInnovateEmployeeServiceImpl implements ImagInnovateEmployeeServ
 
 		Double tax = 0.00;
 		Double cess = 0.00;
-		if (empFinalSalAnnually > 1000000) {
-			tax += (empFinalSalAnnually - 1000000) * 0.20;
+		Double taxableSal=empFinalSalAnnually-250000;
+		
+		if (taxableSal > 1000000) {
+			 tax = empFinalSalAnnually * 0.20;
 			if (empFinalSalAnnually > 2500000) {
 				Double cessApplicableAmount = empFinalSalAnnually - 2500000;
 
-				cess = cessApplicableAmount / 300000 * 0.02 * empFinalSalAnnually;
+				cess = cessApplicableAmount * 0.02 ;
 			} else {
 				cess = null;
 			}
 
 		}
-		if (empFinalSalAnnually > 500000) {
-			tax += (empFinalSalAnnually - 500000) * 0.10;
+		else if (taxableSal > 500000) {
+			 tax= empFinalSalAnnually * 0.10;
 		}
-		if (empFinalSalAnnually > 250000) {
-			tax += (empFinalSalAnnually - 250000) * 0.05;
+		else if (taxableSal > 250000) {
+			 tax= empFinalSalAnnually * 0.05;
 		}
+
 		res.setTaxAmount(tax);
 		res.setCessAmount(cess);
 
